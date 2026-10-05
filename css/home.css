@@ -1,0 +1,611 @@
+/* ==========================================================================
+   Brain Hero Cinematic Section Styles - Responsive & Glassmorphic (home.css)
+   ========================================================================== */
+
+@import url('theme.css');
+
+.brain-hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-deep);
+  perspective: 1400px;
+}
+
+/* ==========================================================================
+   Top Header Navigation
+   ========================================================================== */
+
+.hero-header-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.8rem 4vw;
+  pointer-events: none;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.brand-logo {
+  width: auto;
+  height: 32px;
+  max-width: 36px;
+  object-fit: contain;
+  aspect-ratio: auto;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+}
+
+.header-auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  pointer-events: auto;
+}
+
+.nav-auth-btn {
+  padding: 0.6rem 1.35rem;
+  border-radius: 30px;
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.nav-auth-btn.ghost {
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.nav-auth-btn.ghost:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-auth-btn.primary {
+  color: #09090b;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  font-weight: 700;
+}
+
+.nav-auth-btn.primary:hover {
+  background: #e4e4e7;
+  border-color: #e4e4e7;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   1. Cosmic Background Plane
+   ========================================================================== */
+
+.hero-cosmic-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.cosmic-nebula-plane {
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  opacity: 0.58;
+  mix-blend-mode: screen;
+  filter: contrast(1.2) saturate(1.3) brightness(0.92);
+  will-change: transform;
+}
+
+.cosmic-radial-shadow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(2, 1, 8, 0.1) 0%,
+    rgba(2, 1, 8, 0.6) 60%,
+    rgba(2, 1, 8, 0.95) 100%
+  );
+}
+
+.cosmic-core-glow {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: min(80vw, 750px);
+  height: min(80vw, 750px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(147, 51, 234, 0.28) 0%,
+    rgba(88, 28, 135, 0.15) 40%,
+    transparent 70%
+  );
+  filter: blur(55px);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   2. Canvas Particle Layer
+   ========================================================================== */
+
+.brain-particles-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.particle-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  will-change: contents;
+}
+
+.canvas-background {
+  z-index: 2;
+  opacity: 0.85;
+}
+
+.canvas-foreground {
+  z-index: 5;
+  opacity: 0.95;
+}
+
+/* ==========================================================================
+   3. Brain Visual 3D Stage & Layers (Desktop & Large Screens)
+   ========================================================================== */
+
+.brain-visual-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 7vw;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.brain-3d-stage {
+  position: relative;
+  width: min(58dvw, 720px);
+  height: min(75dvh, 600px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  user-select: none;
+}
+
+.brain-perspective-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+/* Layer 1: Volumetric Glow behind brain */
+.brain-volumetric-glow {
+  position: absolute;
+  width: 115%;
+  height: 115%;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  transition: opacity 0.4s ease;
+  will-change: transform, opacity;
+}
+
+.glow-fissure-radial {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+.glow-fissure-radial.core-violet {
+  top: 45%;
+  left: 48%;
+  width: 65%;
+  height: 55%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(168, 85, 247, 0.48) 0%,
+    rgba(147, 51, 234, 0.32) 40%,
+    rgba(126, 34, 206, 0.12) 70%,
+    transparent 100%
+  );
+}
+
+.glow-fissure-radial.core-cyan {
+  top: 42%;
+  left: 56%;
+  width: 35%;
+  height: 35%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.25) 0%,
+    rgba(147, 51, 234, 0.16) 50%,
+    transparent 80%
+  );
+  filter: blur(28px);
+}
+
+.glow-rim-light {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 40% 30%,
+    rgba(192, 132, 252, 0.2) 0%,
+    transparent 60%
+  );
+  filter: blur(35px);
+}
+
+/* Layer 2: Atmospheric Depth Silhouette (Blurred Duplicate) */
+.brain-depth-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.brain-blur-duplicate {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: blur(26px) saturate(2.2) brightness(1.15);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+/* Layer 3: Hero Isolated Brain (Main Front Layer) */
+.brain-hero-layer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.brain-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 45px rgba(2, 1, 8, 0.95));
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.brain-rim-highlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 75% 40%,
+    rgba(216, 180, 254, 0.1) 0%,
+    transparent 50%
+  );
+  mix-blend-mode: overlay;
+}
+
+/* ==========================================================================
+   4. Cinematic Hero Overlay Framing & Permanent Glassmorphic Card
+   ========================================================================== */
+
+.hero-overlay-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2.5rem 5vw;
+  pointer-events: none;
+}
+
+/* Permanent Blurry Glassmorphism Card (Kept across all screen sizes!) */
+.hero-content-block {
+  max-width: 530px;
+  position: relative;
+  background: rgba(14, 8, 30, 0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  border-radius: 22px;
+  padding: 2.4rem 2.6rem;
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.85);
+  pointer-events: auto;
+  z-index: 15;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-content-block:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 30px 70px -10px rgba(0, 0, 0, 0.9);
+  transform: translateY(-2px);
+}
+
+.hero-pretitle {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.1rem;
+}
+
+.pretitle-line {
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, #a855f7, transparent);
+}
+
+.pretitle-text {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: #d8b4fe;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 1.35rem;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
+}
+
+.title-gradient {
+  background: linear-gradient(135deg, #ffffff 25%, #d8b4fe 65%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-description {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.hero-cta-wrap {
+  margin-top: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #a855f7 0%, #9333ea 55%, #7e22ce 100%);
+  border: 1px solid rgba(216, 180, 254, 0.35);
+  color: #ffffff;
+  font-family: var(--font-primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s ease;
+}
+
+.hero-cta-btn:hover {
+  background: linear-gradient(135deg, #c084fc 0%, #a855f7 55%, #9333ea 100%);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
+  transform: translateY(-2px);
+}
+
+.hero-cta-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  transition: transform 0.25s ease;
+}
+
+.hero-cta-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   5. Responsive Adaptations (Laptops & Tablets)
+   ========================================================================= */
+
+@media (max-width: 1200px) {
+  .brain-visual-wrapper {
+    padding-right: 2vw;
+  }
+  .brain-3d-stage {
+    width: min(54vw, 580px);
+    height: min(65vh, 480px);
+  }
+  .hero-overlay-layer {
+    padding: 2rem 4vw;
+  }
+  .hero-content-block {
+    max-width: 480px;
+    padding: 2rem 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .brain-visual-wrapper {
+    padding-right: 1vw;
+  }
+  .brain-3d-stage {
+    width: min(48vw, 450px);
+    height: min(55vh, 400px);
+  }
+  .hero-content-block {
+    max-width: 440px;
+    padding: 1.8rem 1.8rem;
+  }
+  .hero-title {
+    font-size: 2.8rem;
+  }
+}
+
+/* ==========================================================================
+   6. Mobile Devices (Phones: <= 768px) - Brain is NOT loaded/rendered
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .hero-header-nav {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .header-auth-actions .nav-auth-btn.ghost {
+    display: none;
+  }
+
+  /* Complete removal of the 3D brain element on phone screens */
+  .brain-visual-wrapper {
+    display: none !important;
+  }
+
+  .brain-particles-wrapper {
+    display: none !important;
+  }
+
+  .cosmic-core-glow {
+    top: 50%;
+    left: 50%;
+    width: 90vw;
+    height: 90vw;
+    opacity: 0.6;
+  }
+
+  .brain-hero-section {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 1rem 2rem;
+    overflow: hidden;
+  }
+
+  .hero-overlay-layer {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-content-block {
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.4rem;
+    border-radius: 20px;
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    margin: 0 auto;
+  }
+
+  .hero-pretitle {
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 11vw, 3.4rem);
+    margin-bottom: 1.1rem;
+  }
+
+  .hero-description {
+    text-align: center;
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .hero-cta-wrap {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-content-block {
+    padding: 1.6rem 1.15rem;
+    border-radius: 18px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-description {
+    font-size: 0.88rem;
+  }
+}

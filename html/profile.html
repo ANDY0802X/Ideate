@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>IDEATE // CREATOR NODE PROFILE</title>
+	<link rel="shortcut icon" href="../assets/img/logo.png" type="image/x-icon">
+
+	<!-- Google Fonts: Doto, JetBrains Mono, Outfit, Plus Jakarta Sans, Space Grotesk, Syne -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<!-- Font Awesome Icons -->
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+	<link rel="stylesheet" href="../css/theme.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+	<!-- Cinematic Page Transition Curtain -->
+	<div class="page-transition-curtain" id="pageTransitionCurtain"></div>
+
+	<!-- Analog film grain texture & lens vignette -->
+	<div class="noise-overlay"></div>
+	<div class="cinematic-vignette"></div>
+
+	<!-- Cosmic Nebula Background Layer matching Hero & Home Screen -->
+	<div class="profile-cosmic-bg">
+		<img src="../assets/img/background.png" alt="Cosmic Nebula Void" class="profile-nebula-plane" draggable="false" />
+		<div class="profile-cyber-grid"></div>
+		<div class="profile-radial-shadow"></div>
+		<div class="profile-core-glow"></div>
+	</div>
+
+	<!-- Top Profile Navigation Bar -->
+	<header class="profile-nav-bar">
+		<a href="home.html" class="profile-brand">
+			<img src="../assets/img/logo.png" alt="Ideate Logo" class="profile-logo" />
+			<span class="profile-brand-title">IDEATE</span>
+		</a>
+
+		<div class="profile-nav-links">
+			<a href="home.html" class="nav-back-link">
+				<i class="fas fa-arrow-left"></i>
+				<span>RETURN_TO_STREAM</span>
+			</a>
+		</div>
+	</header>
+
+	<!-- Main Profile Container -->
+	<main class="profile-main-container">
+
+		<!-- Profile Hero Header Card -->
+		<section class="profile-card">
+			<div class="profile-card-top">
+				
+				<div class="profile-identity-group">
+					<!-- Animated Avatar Ring -->
+					<div class="profile-avatar-wrap">
+						<div class="profile-avatar-ring"></div>
+						<div class="profile-avatar-inner">M</div>
+						<div class="profile-verified-badge" title="Verified Founding Thinker">
+							<i class="fas fa-check"></i>
+						</div>
+					</div>
+
+					<div class="profile-details">
+						<span class="profile-tag-badge">[ NODE_0042 // FOUNDING THINKER ]</span>
+						<h1 class="profile-name">MASTIN_01</h1>
+						<span class="profile-handle">@creator_01 • Joined Genesis Node</span>
+					</div>
+				</div>
+
+				<div class="profile-actions">
+					<button class="btn-edit-profile" id="btnEditProfile">
+						<i class="fas fa-pen-to-square"></i>
+						<span>EDIT PROFILE</span>
+					</button>
+					<button class="btn-share-profile" id="btnShareProfile" title="Share Node Link">
+						<i class="fas fa-share-nodes"></i>
+					</button>
+				</div>
+
+			</div>
+
+			<p class="profile-bio">
+				"Building the thoughts and machines that were once considered impossible. Specialized in distributed neural networks, ambient bio-hardware, and resurrecting abandoned open-source architectures that humanity left behind."
+			</p>
+
+			<!-- Profile Stats Row -->
+			<div class="profile-stats-row">
+				<div class="stat-pill-box">
+					<span class="stat-pill-num">18</span>
+					<span class="stat-pill-label">Ideas Sparked</span>
+				</div>
+				<div class="stat-pill-box">
+					<span class="stat-pill-num">1,240</span>
+					<span class="stat-pill-label">Total Sparks</span>
+				</div>
+				<div class="stat-pill-box">
+					<span class="stat-pill-num">5</span>
+					<span class="stat-pill-label">Active War Rooms</span>
+				</div>
+				<div class="stat-pill-box">
+					<span class="stat-pill-num">4</span>
+					<span class="stat-pill-label">Resurrected</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Profile Navigation Tabs -->
+		<div class="profile-tabs-bar">
+			<button class="profile-tab-btn active" data-tab="tab-sparked">MY SPARKED IDEAS (18)</button>
+			<button class="profile-tab-btn" data-tab="tab-warrooms">ACTIVE WAR ROOMS (5)</button>
+			<button class="profile-tab-btn" data-tab="tab-saved">BOOKMARKED BLUEPRINTS (12)</button>
+			<button class="profile-tab-btn" data-tab="tab-badges">NEURAL BADGES (6)</button>
+		</div>
+
+		<!-- Tab 1: My Sparked Ideas -->
+		<section class="tab-panel active" id="tab-sparked">
+			<div class="profile-ideas-grid">
+				
+				<article class="profile-idea-card">
+					<div class="card-top-tag">
+						<span class="tag-label">QUANTUM_SYS</span>
+						<span style="font-family: var(--font-mono); font-size: 0.68rem; color: #34d399;">● ACTIVE NODE</span>
+					</div>
+					<h3 class="card-title">Sub-Kelvin Distributed Qubit Simulator for Desktop Chips</h3>
+					<p class="card-desc">
+						A lightweight GPU-accelerated tensor emulator designed to run small 16-qubit algorithms locally without requiring access to cloud supercomputers.
+					</p>
+					<div class="card-metrics-footer">
+						<div class="metric-item sparks">
+							<i class="fas fa-bolt"></i>
+							<span>482 Sparks</span>
+						</div>
+						<div class="metric-item">
+							<i class="fas fa-users"></i>
+							<span>6 Collaborators</span>
+						</div>
+					</div>
+				</article>
+
+				<article class="profile-idea-card">
+					<div class="card-top-tag">
+						<span class="tag-label">NEURAL_OS</span>
+						<span style="font-family: var(--font-mono); font-size: 0.68rem; color: #fbbf24;">⚡ REPAIRING LINK</span>
+					</div>
+					<h3 class="card-title">Zero-Latency Visual Saccade AST Editor</h3>
+					<p class="card-desc">
+						Direct eye-tracking navigation and neural code manipulation tool. Eliminates manual mouse navigation in 500,000+ line codebases.
+					</p>
+					<div class="card-metrics-footer">
+						<div class="metric-item sparks">
+							<i class="fas fa-bolt"></i>
+							<span>319 Sparks</span>
+						</div>
+						<div class="metric-item">
+							<i class="fas fa-users"></i>
+							<span>3 Collaborators</span>
+						</div>
+					</div>
+				</article>
+
+				<article class="profile-idea-card">
+					<div class="card-top-tag">
+						<span class="tag-label">CLEAN_TECH</span>
+						<span style="font-family: var(--font-mono); font-size: 0.68rem; color: #38bdf8;">◈ IN PROTOTYPING</span>
+					</div>
+					<h3 class="card-title">Localized Piezo-Electric Kinetic Footpath Matrix</h3>
+					<p class="card-desc">
+						Low-cost ceramic tiles capturing pedestrian footsteps to continuously power public night lights in remote off-grid communities.
+					</p>
+					<div class="card-metrics-footer">
+						<div class="metric-item sparks">
+							<i class="fas fa-bolt"></i>
+							<span>439 Sparks</span>
+						</div>
+						<div class="metric-item">
+							<i class="fas fa-users"></i>
+							<span>8 Collaborators</span>
+						</div>
+					</div>
+				</article>
+
+			</div>
+		</section>
+
+		<!-- Tab 2: Active War Rooms -->
+		<section class="tab-panel" id="tab-warrooms">
+			<div class="profile-ideas-grid">
+				<article class="profile-idea-card">
+					<div class="card-top-tag">
+						<span class="tag-label">WAR_ROOM #08</span>
+						<span style="font-family: var(--font-mono); font-size: 0.68rem; color: #10b981;">● SPRINT IN PROGRESS</span>
+					</div>
+					<h3 class="card-title">Atmospheric Water-Harvesting Kite Grid</h3>
+					<p class="card-desc">
+						Collaborative hardware sprint designing hydrophilic mesh wings. Currently engineering the automatic tension winch.
+					</p>
+					<div class="card-metrics-footer">
+						<div class="metric-item">
+							<i class="fas fa-calendar-check"></i>
+							<span>Sprint Ends in 4 Days</span>
+						</div>
+						<button class="nav-back-link" style="padding: 0.3rem 0.8rem; font-size: 0.72rem;">ENTER ROOM →</button>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<!-- Tab 3: Saved Blueprints -->
+		<section class="tab-panel" id="tab-saved">
+			<div class="profile-ideas-grid">
+				<article class="profile-idea-card">
+					<div class="card-top-tag">
+						<span class="tag-label">SAVED_BLUEPRINT</span>
+					</div>
+					<h3 class="card-title">Peer-to-Peer Neighborhood Micro-Battery Energy Routing</h3>
+					<p class="card-desc">
+						Autonomous microsecond energy balancer for residential solar panels. Saved for future hardware integration.
+					</p>
+					<div class="card-metrics-footer">
+						<div class="metric-item sparks">
+							<i class="fas fa-bolt"></i>
+							<span>289 Sparks</span>
+						</div>
+						<span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-text-muted);">Saved 2 days ago</span>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<!-- Tab 4: Neural Badges -->
+		<section class="tab-panel" id="tab-badges">
+			<div class="badges-grid">
+				<div class="badge-card">
+					<div class="badge-icon-box">
+						<i class="fas fa-brain"></i>
+					</div>
+					<div class="badge-info-wrap">
+						<span class="badge-title">FOUNDING THINKER</span>
+						<span class="badge-desc">Genesis node creator on the Ideate platform.</span>
+					</div>
+				</div>
+
+				<div class="badge-card">
+					<div class="badge-icon-box">
+						<i class="fas fa-bolt"></i>
+					</div>
+					<div class="badge-info-wrap">
+						<span class="badge-title">1K SPARKS CLUB</span>
+						<span class="badge-desc">Generated over 1,000 collective thought sparks.</span>
+					</div>
+				</div>
+
+				<div class="badge-card">
+					<div class="badge-icon-box">
+						<i class="fas fa-monument"></i>
+					</div>
+					<div class="badge-info-wrap">
+						<span class="badge-title">RESURRECTOR</span>
+						<span class="badge-desc">Revived 4 abandoned blueprints into active development.</span>
+					</div>
+				</div>
+
+				<div class="badge-card">
+					<div class="badge-icon-box">
+						<i class="fas fa-handshake-angle"></i>
+					</div>
+					<div class="badge-info-wrap">
+						<span class="badge-title">SYNAPSE LEAD</span>
+						<span class="badge-desc">Led 5 multi-disciplinary collaborative War Rooms.</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<script src="../js/profile.js"></script>
+</body>
+</html>

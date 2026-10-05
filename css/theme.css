@@ -1,0 +1,303 @@
+/* ==========================================================================
+   IDEATE — Master Theme & Shared Design System (css/theme.css)
+   Consolidated Design Tokens, Atmospheric Layers, Typography & Glassmorphism
+   ========================================================================== */
+
+:root {
+	/* Typography Families */
+	--font-primary: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	--font-display: 'Syne', sans-serif;
+	--font-mono: 'JetBrains Mono', monospace;
+	--font-body: 'Plus Jakarta Sans', sans-serif;
+	--font-doto: 'Doto', sans-serif;
+	--font-grotesk: 'Space Grotesk', sans-serif;
+
+	/* Water Glass Liquid Atmospheric Palette (Transparent, Pristine Liquid Glass) */
+	--bg-deep: #04020a;
+	--bg-dark: #080414;
+	--bg-card: rgba(255, 255, 255, 0.03);
+	--bg-card-hover: rgba(255, 255, 255, 0.06);
+	--bg-input: rgba(255, 255, 255, 0.04);
+	--bg-surface: rgba(255, 255, 255, 0.03);
+	--bg-surface-elevated: rgba(255, 255, 255, 0.06);
+	--bg-nav: rgba(4, 2, 10, 0.65);
+
+	/* Water Crystal Hairline Borders (Crisp Clean Glass) */
+	--border-subtle: rgba(255, 255, 255, 0.08);
+	--border-hover: rgba(255, 255, 255, 0.2);
+	--border-glass: rgba(255, 255, 255, 0.08);
+	--border-glass-light: rgba(255, 255, 255, 0.16);
+
+	/* Refined Violet & Cosmic Accents */
+	--color-accent-violet: #a855f7;
+	--color-accent-light: #d8b4fe;
+	--color-violet-core: #9333ea;
+	--color-violet-deep: #7e22ce;
+	
+	/* Semantic Colors */
+	--color-amber: #fbbf24;
+	--color-emerald: #10b981;
+	--color-cyan-spark: #38bdf8;
+	--color-danger: #ef4444;
+
+	/* Typography Colors */
+	--color-text-main: #f8fafc;
+	--color-text-primary: #f8fafc;
+	--color-text-secondary: #cbd5e1;
+	--color-text-muted: #cbd5e1;
+	--color-text-dim: #94a3b8;
+
+	/* Clean Neutral Elevation Shadows (No Colored Glowing Shadows) */
+	--shadow-elevation-sm: 0 4px 12px rgba(0, 0, 0, 0.35);
+	--shadow-elevation-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+	--shadow-elevation-lg: 0 20px 45px rgba(0, 0, 0, 0.65);
+	--shadow-elevation-xl: 0 25px 65px -10px rgba(0, 0, 0, 0.85);
+
+	/* Signature Ideate Gradient */
+	--gradient-ideate: linear-gradient(135deg, #ffffff 25%, #d8b4fe 65%, #a855f7 100%);
+	--gradient-violet-btn: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+	--gradient-violet-btn-hover: linear-gradient(135deg, #c084fc 0%, #a855f7 100%);
+}
+
+/* ==========================================================================
+   Global Reset & Base Defaults
+   ========================================================================== */
+
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	width: 100%;
+	min-height: 100%;
+	background-color: var(--bg-deep);
+	color: var(--color-text-main);
+	font-family: var(--font-primary);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(168, 85, 247, 0.3);
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(168, 85, 247, 0.6);
+}
+
+/* ==========================================================================
+   Shared Cinematic & Atmospheric Overlays
+   ========================================================================== */
+
+/* Subtle Analog Film Noise */
+.noise-overlay {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 99;
+	opacity: 0.035;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Cinematic Lens Vignette */
+.cinematic-vignette {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 10;
+	background: radial-gradient(ellipse at center, transparent 45%, rgba(2, 1, 8, 0.75) 85%, rgba(2, 1, 8, 0.98) 100%);
+}
+
+/* Page Transition Curtain */
+.page-transition-curtain {
+	position: fixed;
+	inset: 0;
+	background: radial-gradient(circle at center, #0f0724 0%, #020108 100%);
+	z-index: 9999;
+	pointer-events: none;
+	opacity: 1;
+	transform: scale(1);
+	transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-transition-curtain.loaded {
+	opacity: 0;
+	transform: scale(1.04);
+}
+
+.page-transition-curtain.exiting {
+	opacity: 1;
+	transform: scale(1);
+	pointer-events: auto;
+}
+
+/* ==========================================================================
+   Cosmic Nebula Atmospheric Background Layer System
+   ========================================================================== */
+
+.cosmic-bg,
+.app-cosmic-bg,
+.auth-cosmic-bg,
+.profile-cosmic-bg {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	overflow: hidden;
+}
+
+.nebula-plane,
+.app-nebula-plane,
+.auth-nebula-plane,
+.profile-nebula-plane {
+	position: absolute;
+	top: -5%;
+	left: -5%;
+	width: 110%;
+	height: 110%;
+	object-fit: cover;
+	opacity: 0.48;
+	mix-blend-mode: screen;
+	filter: contrast(1.2) saturate(1.25) brightness(0.82);
+}
+
+.cyber-grid,
+.app-cyber-grid,
+.auth-cyber-grid,
+.profile-cyber-grid {
+	position: absolute;
+	inset: 0;
+	opacity: 0.05;
+	background-image: 
+		linear-gradient(to right, rgba(168, 85, 247, 0.3) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(168, 85, 247, 0.3) 1px, transparent 1px);
+	background-size: 32px 32px;
+}
+
+.radial-shadow,
+.app-radial-shadow,
+.auth-radial-shadow,
+.profile-radial-shadow {
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(
+		circle at center,
+		rgba(4, 2, 10, 0.3) 0%,
+		rgba(4, 2, 10, 0.82) 65%,
+		rgba(4, 2, 10, 0.98) 100%
+	);
+}
+
+.core-glow,
+.app-core-glow,
+.auth-core-glow,
+.profile-core-glow {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -20%);
+	width: min(90vw, 800px);
+	height: min(90vw, 600px);
+	border-radius: 50%;
+	background: radial-gradient(
+		circle,
+		rgba(147, 51, 234, 0.18) 0%,
+		rgba(88, 28, 135, 0.08) 45%,
+		transparent 70%
+	);
+	filter: blur(80px);
+}
+
+/* ==========================================================================
+   Shared Branding & Header Components
+   ========================================================================== */
+
+.brand-link,
+.app-brand,
+.profile-brand {
+	display: flex;
+	align-items: center;
+	gap: 0.85rem;
+	text-decoration: none;
+}
+
+.brand-logo,
+.app-logo,
+.profile-logo {
+	width: auto;
+	height: 32px;
+	max-width: 36px;
+	object-fit: contain;
+	aspect-ratio: auto;
+}
+
+.brand-name,
+.app-brand-title,
+.profile-brand-title {
+	font-family: var(--font-doto);
+	font-size: 1.25rem;
+	font-weight: 900;
+	letter-spacing: 0.08em;
+	background: var(--gradient-ideate);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   Shared Typography & Heading Helpers
+   ========================================================================== */
+
+.doto-heading {
+	font-family: var(--font-doto);
+	font-weight: 900;
+	letter-spacing: 0.05em;
+	background: var(--gradient-ideate);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	display: inline-block;
+	text-transform: uppercase;
+}
+
+.title-gradient {
+	background: var(--gradient-ideate);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	display: inline-block;
+}
+
+/* ==========================================================================
+   Shared Glassmorphism Panels & Cards
+   ========================================================================== */
+
+.glass-panel,
+.glass-card {
+	background: var(--bg-card);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border: 1px solid var(--border-subtle);
+	border-radius: 18px;
+	box-shadow: var(--shadow-elevation-md);
+	transition: all 0.25s ease;
+}
+
+.glass-panel:hover,
+.glass-card:hover {
+	background: var(--bg-card-hover);
+	border-color: var(--border-hover);
+}

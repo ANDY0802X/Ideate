@@ -1,0 +1,13 @@
+@import url('theme.css');
+
+/* ==========================================================================
+   Global App Layout Container Helpers
+   ========================================================================== */
+
+.main {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}

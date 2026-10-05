@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>IDEATE</title>
+    <meta name="description" content="Cinematic interactive 3D neural brain element floating in deep space." />
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+
+    <!-- High-priority preloads (Brain only preloads on larger devices/desktops) -->
+    <link rel="preload" as="image" href="assets/img/only_brain.png" media="(min-width: 769px)" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/img/background.png" fetchpriority="high">
+
+    <!-- Google Fonts: Doto, JetBrains Mono, Outfit, Plus Jakarta Sans, Space Grotesk, Syne -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <!-- Cinematic Page Transition Curtain -->
+    <div class="page-transition-curtain" id="pageTransitionCurtain"></div>
+
+    <!-- Analog film grain texture overlay -->
+    <div class="noise-overlay"></div>
+    <!-- Deep cinematic lens vignette -->
+    <div class="cinematic-vignette"></div>
+
+    <div class="main">
+        <!-- Top Header Navigation -->
+        <header class="hero-header-nav">
+            <a href="index.html" class="brand-link">
+                <img src="assets/img/logo.png" alt="Ideate Logo" class="brand-logo" />
+                <span class="brand-name">IDEATE</span>
+            </a>
+            <div class="header-auth-actions">
+                <a href="html/login.html" class="nav-auth-btn ghost transition-link">Sign In</a>
+                <a href="html/login.html#signup" class="nav-auth-btn primary transition-link">Get Started</a>
+            </div>
+        </header>
+
+        <!-- Brain Hero Section -->
+        <section class="brain-hero-section">
+
+            <!-- 1. Deep Space Cosmic Nebula Backdrop -->
+            <div class="hero-cosmic-bg">
+                <img src="assets/img/background.png" alt="Cosmic Void Background" class="cosmic-nebula-plane" draggable="false" loading="eager" fetchpriority="high" />
+                <div class="cosmic-radial-shadow"></div>
+                <div class="cosmic-core-glow"></div>
+            </div>
+
+            <!-- 2. Dual Canvas Particle System (Behind & Front Depth Layers) -->
+            <div class="brain-particles-wrapper" id="particlesWrapper">
+                <canvas id="bgCanvas" class="particle-canvas canvas-background"></canvas>
+                <canvas id="fgCanvas" class="particle-canvas canvas-foreground"></canvas>
+            </div>
+
+            <!-- 3. Hero 3D Brain Visual Element (Active on desktop / large screens) -->
+            <div class="brain-visual-wrapper">
+                <div class="brain-3d-stage" id="brainStage">
+                    <div class="brain-perspective-container">
+
+                        <!-- Layer 1: Volumetric Purple Fissure Back-Glow -->
+                        <div class="brain-volumetric-glow" id="backGlow">
+                            <div class="glow-fissure-radial core-violet"></div>
+                            <div class="glow-fissure-radial core-cyan"></div>
+                            <div class="glow-rim-light"></div>
+                        </div>
+
+                        <!-- Layer 2: Atmospheric Depth Silhouette (Blurred Duplicate) -->
+                        <div class="brain-depth-layer" id="blurDepth" aria-hidden="true">
+                            <img src="assets/img/only_brain.png" alt="" class="brain-blur-duplicate" draggable="false" loading="eager" />
+                        </div>
+
+                        <!-- Layer 3: The Hero Isolated Brain Artwork -->
+                        <div class="brain-hero-layer" id="frontBrain">
+                            <img src="assets/img/only_brain.png" alt="Cosmic Neural Core" class="brain-hero-image" draggable="false" loading="eager" fetchpriority="high" />
+                            <div class="brain-rim-highlight"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Cinematic Overlay UI (Framing, HUD, Content) -->
+            <div class="hero-overlay-layer">
+                <div class="hero-content-block">
+                    <div class="hero-pretitle">
+                        <span class="pretitle-line"></span>
+                        <span class="pretitle-text">think | design | create</span>
+                        <span class="pretitle-line"></span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="title-gradient">IDEATE</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        A clear, simple platform for creating and thinking, a first ever thinking based platform that is designed to circulate ideas never built by anyone! The ideas that must exist but due to lack of resources and people were left behind. It's time to bring them into a new life!
+                    </p>
+
+                    <div class="hero-cta-wrap">
+                        <a href="html/login.html" class="hero-cta-btn transition-link">
+                            <span>Enter Platform</span>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

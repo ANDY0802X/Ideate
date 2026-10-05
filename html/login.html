@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>IDEATE // AUTH TERMINAL</title>
+	<link rel="shortcut icon" href="../assets/img/logo.png" type="image/x-icon">
+
+	<!-- Google Fonts: Doto (Nothing OS Dot Font), JetBrains Mono, Outfit, Space Grotesk -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<!-- Font Awesome Icons -->
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+	<link rel="stylesheet" href="../css/theme.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body>
+	<!-- Cinematic Page Transition Curtain -->
+	<div class="page-transition-curtain" id="pageTransitionCurtain"></div>
+
+	<!-- Analog film grain & lens vignette -->
+	<div class="noise-overlay"></div>
+	<div class="cinematic-vignette"></div>
+
+	<!-- Cosmic Nebula Background Layer with Cyber Grid -->
+	<div class="auth-cosmic-bg">
+		<img src="../assets/img/background.png" alt="Cosmic Background" class="auth-nebula-plane" draggable="false" />
+		<div class="auth-cyber-grid"></div>
+		<div class="auth-radial-shadow"></div>
+		<div class="auth-core-glow"></div>
+	</div>
+
+	<!-- Back to Home Navigation -->
+	<nav class="auth-nav">
+		<a href="../index.html" class="back-home-btn" id="navBackHome">
+			<svg viewBox="0 0 24 24">
+				<path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+			</svg>
+			<span class="doto-label">← BACK_TO_IDEATE</span>
+		</a>
+		
+	</nav>
+
+	<!-- The Sliding Auth Container -->
+	<div class="container" id="container">
+		
+		<!-- Sign Up Form (Left Slide) -->
+		<div class="form-container sign-up-container">
+			<form action="#" id="signUpForm" autocomplete="off">
+				<div class="form-cyber-tag">[ REGISTER_NEW_USER ]</div>
+				<h1 class="doto-heading">SIGN UP</h1>
+				
+				<div class="social-container">
+					<a href="#" class="social social-google" title="Authenticate with Google" aria-label="Google"><i class="fab fa-google"></i></a>
+					<a href="#" class="social social-github" title="Authenticate with GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+					<a href="#" class="social social-discord" title="Authenticate with Discord" aria-label="Discord"><i class="fab fa-discord"></i></a>
+				</div>
+				
+				<span class="auth-field-caption">EMAIL REQUIRED STRICTLY FOR AUTH & RECOVERY</span>
+				
+				<div class="input-box">
+					<i class="fas fa-id-badge input-ico"></i>
+					<input type="text" id="signUpUsername" placeholder="Create Username" required autocomplete="username" />
+				</div>
+				
+				<div class="input-box">
+					<i class="fas fa-envelope input-ico"></i>
+					<input type="email" id="signUpEmail" placeholder="Email " required autocomplete="email" />
+				</div>
+				
+				<div class="input-box">
+					<i class="fas fa-key input-ico"></i>
+					<input type="password" id="signUpPassword" placeholder="Security Password" required autocomplete="new-password" />
+				</div>
+
+				<div class="input-box" id="confirmPasswordBox">
+					<i class="fas fa-shield-alt input-ico"></i>
+					<input type="password" id="signUpConfirmPassword" placeholder="Confirm Password" required autocomplete="new-password" />
+					<span class="match-indicator" id="passwordMatchIndicator"></span>
+				</div>
+
+				<div class="auth-feedback-msg" id="signUpFeedbackMsg"></div>
+
+				<button type="submit" class="cyber-btn" id="btnSignUpSubmit">
+					<span class="btn-glitch-text">REGISTER ID</span>
+					<i class="fas fa-chevron-right btn-arrow"></i>
+				</button>
+			</form>
+		</div>
+
+		<!-- Sign In Form (Right Slide) -->
+		<div class="form-container sign-in-container">
+			<form action="#" id="signInForm" autocomplete="off">
+				<div class="form-cyber-tag">[ ACCESS_THOUGHTS ]</div>
+				<h1 class="doto-heading">SIGN IN</h1>
+				
+				<div class="social-container">
+					<a href="#" class="social social-google" title="Authenticate with Google" aria-label="Google"><i class="fab fa-google"></i></a>
+					<a href="#" class="social social-github" title="Authenticate with GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+					<a href="#" class="social social-discord" title="Authenticate with Discord" aria-label="Discord"><i class="fab fa-discord"></i></a>
+				</div>
+				
+				<span class="auth-field-caption">ENTER YOUR IDEATE USERNAME & KEY</span>
+				
+				<div class="input-box">
+					<i class="fas fa-user-astronaut input-ico"></i>
+					<input type="text" id="signInUsername" placeholder="Username / Handle" required autocomplete="username" />
+				</div>
+				
+				<div class="input-box">
+					<i class="fas fa-lock input-ico"></i>
+					<input type="password" id="signInPassword" placeholder="Security Password" required autocomplete="current-password" />
+				</div>
+
+				<a href="#" class="forgot-pass-link" id="forgotPassLink">RECOVER KEY / FORGOT PASSWORD?</a>
+				
+				<button type="submit" class="cyber-btn" id="btnSignInSubmit">
+					<span class="btn-glitch-text">LOG IN</span>
+					<i class="fas fa-chevron-right btn-arrow"></i>
+				</button>
+			</form>
+		</div>
+
+		<!-- Animated Sliding Overlay Panels -->
+		<div class="overlay-container">
+			<div class="overlay">
+				
+				<!-- Left Overlay Panel (Shown when on Sign Up form) -->
+				<div class="overlay-panel overlay-left">
+					<div class="overlay-badge">SYS // RECONNECT</div>
+					<h1 class="doto-heading">WELCOME BACK</h1>
+					<p>Already possess an active Ideate Neural Node? Connect with your username credentials.</p>
+					<button class="ghost cyber-ghost-btn" id="signIn">
+						<span>SIGN IN</span>
+					</button>
+				</div>
+
+				<!-- Right Overlay Panel (Shown when on Sign In form) -->
+				<div class="overlay-panel overlay-right">
+					<div class="overlay-badge">SYS // INITIALIZE</div>
+					<h1 class="doto-heading">NEW CREATOR</h1>
+					<p>Create your custom username node and circulate ideas never built before.</p>
+					<button class="ghost cyber-ghost-btn" id="signUp">
+						<span>CREATE ID</span>
+					</button>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<script src="../js/auth.js"></script>
+
+</body>
+</html>
