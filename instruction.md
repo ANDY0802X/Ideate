@@ -102,6 +102,10 @@ Every main platform view utilizes the layered cosmic atmosphere:
 
 ```
 Ideate/
+├── SHOFER.md             # Shofer integration & declarative workflow guide
+├── .shofer/              # Shofer configuration & .slang workflows
+│   ├── config.json       # Project conventions & tool permissions
+│   └── workflows/        # Declarative feature & audit pipelines (.slang)
 ├── index.html            # Landing hero & 3D neural brain visualization
 ├── instruction.md        # AI System Instructions & Project Architecture
 ├── history.md            # Detailed chronological change log & prompt history
@@ -132,9 +136,10 @@ Ideate/
 1. **[TODO: SPAWN_NEW_THOUGHT] Logic**:
    - Build a full-screen or slide-out terminal modal for spawning new impossible ideas.
    - Implement dynamic tagging (`#AI`, `#Rust`, `#Quantum`), missing talent role picker, and markdown blueprint editor.
-2. **[TO EDIT] Popular Clusters Engine**:
-   - Connect hashtag clusters to dynamic query aggregation.
-   - Allow creators to browse top trending idea clusters.
+2. **[COMPLETED] Saved Collections & Bookmarking Engine**:
+   - Pinned primary "Joined Projects" collection with live crew telemetry.
+   - Dynamic user-named custom collections with icon pickers and `localStorage` persistence.
+   - Multimodal bookmarking: bottom-left card save/join actions and modal top-bar save controls.
 3. **Authentication & Identity Integration**:
    - OAuth providers: Google, GitHub, and custom username authentication.
    - Session state synchronization between Auth, Home, and Profile.

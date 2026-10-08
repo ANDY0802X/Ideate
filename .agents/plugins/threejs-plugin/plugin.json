@@ -1,0 +1,9 @@
+{
+  "name": "threejs-plugin",
+  "version": "1.0.0",
+  "description": "Enterprise Three.js, WebGL & 3D Web graphics engineering pack for high-performance interactive 3D web applications, shaders, hero scenes, and asset pipelines.",
+  "author": "Antigravity",
+  "skills": [
+    "../../skills/threejs-engineering"
+  ]
+}

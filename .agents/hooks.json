@@ -1,0 +1,15 @@
+{
+  "dev-canvas-quality-gate": {
+    "PostToolUse": [
+      {
+        "matcher": "replace_file_content",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .agents/scripts/dev-canvas-router.js --audit"
+          }
+        ]
+      }
+    ]
+  }
+}

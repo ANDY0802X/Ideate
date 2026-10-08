@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "fetch-service": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fetch"]
+    },
+    "memory-service": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"]
+    },
+    "sqlite-service": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sqlite", "ideate.db"]
+    }
+  }
+}

@@ -118,18 +118,34 @@
 				</ul>
 			</div>
 
-			<!-- Popular Clusters (To Edit) -->
-			<div class="sidebar-glass-panel">
-				<div class="sidebar-title" style="color: #ef4444; font-weight: 800; letter-spacing: 0.14em;">
-					POPULAR CLUSTERS [TO EDIT]
+			<!-- Left Sidebar Panel 2: Saved Collections -->
+			<div class="sidebar-glass-panel collections-panel">
+				<div class="sidebar-title-row">
+					<div class="sidebar-title">SAVED COLLECTIONS</div>
+					<button class="btn-add-collection-chip" id="btnOpenAddCollectionModal" title="Create New Collection" type="button">
+						<i class="fas fa-plus"></i>
+						<span>NEW</span>
+					</button>
 				</div>
-				<div class="cluster-tags-wrap">
-					<a href="#" class="cluster-tag">#DistributedArch</a>
-					<a href="#" class="cluster-tag">#BioHardware</a>
-					<a href="#" class="cluster-tag">#ZeroTrust</a>
-					<a href="#" class="cluster-tag">#LLMEngines</a>
-					<a href="#" class="cluster-tag">#MeshPower</a>
-				</div>
+				<ul class="sidebar-nav-list" id="collectionNavList">
+					<!-- 1. Pinned Primary: Joined Projects -->
+					<li>
+						<a href="#" class="sidebar-nav-link collection-link" data-collection="joined" id="collectionJoinedLink">
+							<i class="fas fa-rocket"></i>
+							<span>Joined Projects</span>
+							<span class="nav-count-badge" id="badgeJoinedCount">1</span>
+						</a>
+					</li>
+					<!-- 2. Default Saved Ideas Collection -->
+					<li>
+						<a href="#" class="sidebar-nav-link collection-link" data-collection="saved" id="collectionSavedLink">
+							<i class="fas fa-bookmark"></i>
+							<span>Saved Thoughts</span>
+							<span class="nav-count-badge" id="badgeSavedCount">1</span>
+						</a>
+					</li>
+					<!-- Custom user collections rendered dynamically here -->
+				</ul>
 			</div>
 		</aside>
 
@@ -137,7 +153,7 @@
 		<section class="app-feed-column" id="ideaFeedContainer">
 
 			<!-- Feed Post 1: Neural Coding Synthesizer -->
-			<article class="idea-card" data-theme="quantum-bio" 
+			<article class="idea-card" id="idea-neural-coding" data-id="idea-neural-coding" data-theme="quantum-bio" 
 				data-title="Direct-Neural Optical Synthesizer for High-Speed Coding"
 				data-author="@neuro_architect"
 				data-avatar="N"
@@ -168,15 +184,27 @@
 				</div>
 
 				<div class="idea-card-footer">
-					<button class="star-action-btn" title="Star this project" type="button">
-						<i class="far fa-star"></i>
-						<span class="star-count">142</span>
-					</button>
+					<div class="card-footer-left">
+						<button class="save-action-btn" title="Save to Collections" type="button" data-id="idea-neural-coding">
+							<i class="far fa-bookmark"></i>
+							<span class="save-btn-label">Save</span>
+						</button>
+						<button class="join-action-btn" title="Join this project" type="button" data-id="idea-neural-coding">
+							<i class="fas fa-plus"></i>
+							<span class="join-btn-label">Join</span>
+						</button>
+					</div>
+					<div class="card-footer-right">
+						<button class="star-action-btn" title="Star this project" type="button">
+							<i class="far fa-star"></i>
+							<span class="star-count">142</span>
+						</button>
+					</div>
 				</div>
 			</article>
 
 			<!-- Feed Post 2: Decentralized Solar Mesh -->
-			<article class="idea-card" data-theme="hardware-robotics"
+			<article class="idea-card" id="idea-solar-mesh" data-id="idea-solar-mesh" data-theme="hardware-robotics"
 				data-title="Peer-to-Peer Neighborhood Micro-Battery Energy Routing"
 				data-author="@solar_nomad"
 				data-avatar="S"
@@ -207,15 +235,27 @@
 				</div>
 
 				<div class="idea-card-footer">
-					<button class="star-action-btn active" title="Star this project" type="button">
-						<i class="fas fa-star"></i>
-						<span class="star-count">289</span>
-					</button>
+					<div class="card-footer-left">
+						<button class="save-action-btn active" title="Save to Collections" type="button" data-id="idea-solar-mesh">
+							<i class="fas fa-bookmark"></i>
+							<span class="save-btn-label">Saved</span>
+						</button>
+						<button class="join-action-btn active" title="Joined Project" type="button" data-id="idea-solar-mesh">
+							<i class="fas fa-check"></i>
+							<span class="join-btn-label">Joined</span>
+						</button>
+					</div>
+					<div class="card-footer-right">
+						<button class="star-action-btn active" title="Star this project" type="button">
+							<i class="fas fa-star"></i>
+							<span class="star-count">289</span>
+						</button>
+					</div>
 				</div>
 			</article>
 
 			<!-- Feed Post 3: Zero-Knowledge Real-Time Canvas -->
-			<article class="idea-card" data-theme="cybersecurity"
+			<article class="idea-card" id="idea-zk-canvas" data-id="idea-zk-canvas" data-theme="cybersecurity"
 				data-title="Zero-Knowledge Encrypted Real-Time Collaborative Canvas"
 				data-author="@crypto_cipher"
 				data-avatar="K"
@@ -246,15 +286,27 @@
 				</div>
 
 				<div class="idea-card-footer">
-					<button class="star-action-btn" title="Star this project" type="button">
-						<i class="far fa-star"></i>
-						<span class="star-count">318</span>
-					</button>
+					<div class="card-footer-left">
+						<button class="save-action-btn" title="Save to Collections" type="button" data-id="idea-zk-canvas">
+							<i class="far fa-bookmark"></i>
+							<span class="save-btn-label">Save</span>
+						</button>
+						<button class="join-action-btn" title="Join this project" type="button" data-id="idea-zk-canvas">
+							<i class="fas fa-plus"></i>
+							<span class="join-btn-label">Join</span>
+						</button>
+					</div>
+					<div class="card-footer-right">
+						<button class="star-action-btn" title="Star this project" type="button">
+							<i class="far fa-star"></i>
+							<span class="star-count">318</span>
+						</button>
+					</div>
 				</div>
 			</article>
 
 			<!-- Feed Post 4: Local Distributed LLM Engine -->
-			<article class="idea-card" data-theme="ai-ml"
+			<article class="idea-card" id="idea-distributed-llm" data-id="idea-distributed-llm" data-theme="ai-ml"
 				data-title="Mesh-Distributed 70B LLM Inference on Consumer GPUs"
 				data-author="@tensor_pioneer"
 				data-avatar="A"
@@ -285,10 +337,22 @@
 				</div>
 
 				<div class="idea-card-footer">
-					<button class="star-action-btn" title="Star this project" type="button">
-						<i class="far fa-star"></i>
-						<span class="star-count">512</span>
-					</button>
+					<div class="card-footer-left">
+						<button class="save-action-btn" title="Save to Collections" type="button" data-id="idea-distributed-llm">
+							<i class="far fa-bookmark"></i>
+							<span class="save-btn-label">Save</span>
+						</button>
+						<button class="join-action-btn" title="Join this project" type="button" data-id="idea-distributed-llm">
+							<i class="fas fa-plus"></i>
+							<span class="join-btn-label">Join</span>
+						</button>
+					</div>
+					<div class="card-footer-right">
+						<button class="star-action-btn" title="Star this project" type="button">
+							<i class="far fa-star"></i>
+							<span class="star-count">512</span>
+						</button>
+					</div>
 				</div>
 			</article>
 
@@ -319,6 +383,7 @@
 
 			<!-- Most Liked of the Day Spotlight -->
 			<div class="telemetry-card spotlight-card"
+				data-id="idea-distributed-llm"
 				data-title="Mesh-Distributed 70B LLM Inference on Consumer GPUs"
 				data-author="@tensor_pioneer"
 				data-avatar="A"
@@ -348,7 +413,14 @@
 	<!-- Full Project Inspection Modal (Displays whole project when post is clicked) -->
 	<div class="project-modal-backdrop" id="projectModal">
 		<div class="project-modal-sheet">
-			<button class="modal-close-btn" id="modalCloseBtn" title="Close modal"><i class="fas fa-xmark"></i></button>
+			<!-- Top Actions Bar: Save Button & Close Button -->
+			<div class="modal-top-actions">
+				<button class="modal-top-save-btn" id="modalSaveBtn" title="Save to Collection" type="button">
+					<i class="far fa-bookmark"></i>
+					<span id="modalSaveBtnText">Save</span>
+				</button>
+				<button class="modal-close-btn" id="modalCloseBtn" title="Close modal"><i class="fas fa-xmark"></i></button>
+			</div>
 			
 			<div class="modal-author-row">
 				<div class="creator-avatar" id="modalAvatar">N</div>
@@ -384,14 +456,56 @@
 					<i class="far fa-star"></i>
 					<span class="star-count">142</span> Stars
 				</button>
-				<button class="modal-action-primary" id="modalSubmitContribution">
-					<i class="fas fa-code-merge"></i>
-					<span>Join Project</span>
-				</button>
+				<div class="modal-footer-right-actions">
+					<button class="modal-action-primary" id="modalJoinBtn" type="button">
+						<i class="fas fa-rocket"></i>
+						<span id="modalJoinBtnText">Join Project</span>
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
 
+	<!-- Create New Collection Dialog Modal -->
+	<div class="project-modal-backdrop" id="collectionModal">
+		<div class="project-modal-sheet collection-modal-sheet">
+			<div class="modal-top-actions">
+				<button class="modal-close-btn" id="collectionModalCloseBtn" title="Close"><i class="fas fa-xmark"></i></button>
+			</div>
+			
+			<h3 class="collection-modal-title">Create New Collection</h3>
+			<p class="collection-modal-subtitle">Organize ideas and blueprints into a custom collection.</p>
+			
+			<form id="createCollectionForm" class="collection-modal-form">
+				<div class="collection-form-field">
+					<label for="collectionNameInput">Collection Name</label>
+					<input type="text" id="collectionNameInput" class="app-modal-input" placeholder="e.g. Neural AST, Quantum Hardware, Seed Ideas" required maxlength="30" autocomplete="off" />
+				</div>
+
+				<div class="collection-form-field">
+					<label>Collection Icon</label>
+					<div class="icon-picker-grid" id="collectionIconPicker">
+						<button type="button" class="icon-choice-btn active" data-icon="fa-folder"><i class="fas fa-folder"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-bolt"><i class="fas fa-bolt"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-lightbulb"><i class="fas fa-lightbulb"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-microchip"><i class="fas fa-microchip"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-dna"><i class="fas fa-dna"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-shield-halved"><i class="fas fa-shield-halved"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-code"><i class="fas fa-code"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-star"><i class="fas fa-star"></i></button>
+					</div>
+				</div>
+
+				<div class="collection-modal-btn-row">
+					<button type="button" class="btn-cancel-glass" id="collectionModalCancelBtn">Cancel</button>
+					<button type="submit" class="modal-action-primary">
+						<i class="fas fa-plus"></i>
+						<span>Create Collection</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
 	<script src="../js/app_home.js"></script>
 </body>
 </html>

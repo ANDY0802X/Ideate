@@ -1,0 +1,31 @@
+{
+  "$schema": "https://shofer.dev/schema/config.json",
+  "project": {
+    "name": "Ideate",
+    "description": "High-density idea incubator with obsidian dark aesthetics, liquid glassmorphism, and telemetry-grade responsiveness.",
+    "stack": ["html5", "css3", "vanilla-js", "three.js"]
+  },
+  "providers": {
+    "primaryDriver": {
+      "provider": "antigravity-native",
+      "engine": "gemini-claude-hybrid",
+      "description": "Primary autonomous coding and feature implementation engine"
+    },
+    "qaAuditor": {
+      "provider": "github-copilot",
+      "engine": "copilot-gpt4o",
+      "description": "Pre-flight QA, syntax anomaly inspection, and code health audits"
+    }
+  },
+  "workflowsDirectory": ".shofer/workflows",
+  "conventions": {
+    "theme": "css/theme.css",
+    "guidelines": "instruction.md",
+    "changelog": "history.md"
+  },
+  "tools": {
+    "allowFileEdits": true,
+    "allowTerminalExecution": true,
+    "allowBrowserInspection": true
+  }
+}
