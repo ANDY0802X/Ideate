@@ -317,13 +317,11 @@ class BrainParticleEngine {
   }
 
   draw() {
-    if (this.bgCtx) {
-      this.bgCtx.clearRect(0, 0, this.width, this.height);
-      this.bgCtx.globalCompositeOperation = 'lighter';
-    }
-    if (this.fgCtx) {
-      this.fgCtx.clearRect(0, 0, this.width, this.height);
-      this.fgCtx.globalCompositeOperation = 'lighter';
+    for (const ctx of [this.bgCtx, this.fgCtx]) {
+      if (ctx) {
+        ctx.clearRect(0, 0, this.width, this.height);
+        ctx.globalCompositeOperation = 'lighter';
+      }
     }
 
     const { centerX, centerY, width: bW, height: bH } = this.brainBounds;
@@ -518,6 +516,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const lerp = (start, end, factor) => start + (end - start) * factor;
 
+  const formatTransform3D = (tx, ty, tz, rx, ry, rz, scale) =>
+    `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, ${tz}px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) rotateZ(${rz.toFixed(2)}deg) scale(${scale.toFixed(4)})`;
+
   // 3D Physics Animation Loop
   const renderLoop = (currentTime) => {
     if (isPhoneScreen()) {
@@ -555,13 +556,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Apply 3D Transforms to Layers
     if (frontBrain) {
-      frontBrain.style.transform = `
-        translate3d(${totalTransX.toFixed(2)}px, ${totalTransY.toFixed(2)}px, 0px)
-        rotateX(${totalRotX.toFixed(2)}deg)
-        rotateY(${totalRotY.toFixed(2)}deg)
-        rotateZ(${totalRotZ.toFixed(2)}deg)
-        scale(${finalScale.toFixed(4)})
-      `;
+      frontBrain.style.transform = formatTransform3D(
+        totalTransX,
+        totalTransY,
+        0,
+        totalRotX,
+        totalRotY,
+        totalRotZ,
+        finalScale
+      );
     }
 
     if (blurDepth) {
@@ -571,13 +574,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const backRotY = totalRotY * 0.9;
       const backScale = finalScale * 1.04;
 
-      blurDepth.style.transform = `
-        translate3d(${backTransX.toFixed(2)}px, ${backTransY.toFixed(2)}px, -35px)
-        rotateX(${backRotX.toFixed(2)}deg)
-        rotateY(${backRotY.toFixed(2)}deg)
-        rotateZ(${totalRotZ.toFixed(2)}deg)
-        scale(${backScale.toFixed(4)})
-      `;
+      blurDepth.style.transform = formatTransform3D(
+        backTransX,
+        backTransY,
+        -35,
+        backRotX,
+        backRotY,
+        totalRotZ,
+        backScale
+      );
     }
 
     if (backGlow) {
