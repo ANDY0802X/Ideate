@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>IDEATE // NEURAL THOUGHT STREAM</title>
+	<link rel="shortcut icon" href="../assets/img/logo.png" type="image/x-icon">
+
+	<!-- Google Fonts: Doto, JetBrains Mono, Outfit, Plus Jakarta Sans, Space Grotesk, Syne -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<!-- Font Awesome Icons -->
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+	<link rel="stylesheet" href="../css/theme.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/app_home.css">
+</head>
+<body>
+	<!-- Cinematic Page Transition Curtain -->
+	<div class="page-transition-curtain" id="pageTransitionCurtain"></div>
+
+	<!-- Analog film grain texture & lens vignette -->
+	<div class="noise-overlay"></div>
+	<div class="cinematic-vignette"></div>
+
+	<!-- Cosmic Nebula Background Layer matching Main Hero Screen -->
+	<div class="app-cosmic-bg">
+		<img src="../assets/img/background.png" alt="Cosmic Nebula Void" class="app-nebula-plane" draggable="false" />
+		<div class="app-cyber-grid"></div>
+		<div class="app-radial-shadow"></div>
+		<div class="app-core-glow"></div>
+	</div>
+
+	<!-- Top Application Navigation Bar -->
+	<header class="app-nav-bar">
+		<a href="../html/home.html" class="app-brand">
+			<img src="../assets/img/logo.png" alt="Ideate Logo" class="app-logo" />
+			<span class="app-brand-title">IDEATE</span>
+		</a>
+
+		<!-- Clean Search Bar -->
+		<div class="app-search-wrap">
+			<i class="fas fa-search search-ico"></i>
+			<input type="text" class="app-search-input" placeholder="Search" />
+		</div>
+
+		<!-- Notifications & Profile -->
+		<div class="app-nav-actions">
+			<div class="notifications-wrapper" id="notificationsWrapper">
+				<button class="nav-icon-btn" id="btnNotifications" title="Notifications" aria-label="Toggle Notifications" aria-expanded="false" type="button">
+					<i class="fas fa-bell"></i>
+					<span class="icon-badge-dot" id="notifBadgeDot"></span>
+				</button>
+
+				<!-- Futuristic Obsidian Notification Panel Dropdown -->
+				<div class="notifications-panel" id="notificationsPanel" role="region" aria-label="Notifications" aria-hidden="true">
+					<div class="notif-header">
+						<div class="notif-title-wrap">
+							<span class="notif-tag">[ TELEMETRY ]</span>
+							<h3 class="notif-title">NOTIFICATIONS</h3>
+						</div>
+						<div class="notif-header-actions">
+							<button class="notif-action-text" id="btnMarkAllRead" type="button" title="Mark all as read">
+								<i class="fas fa-check-double"></i>
+								<span>Mark all read</span>
+							</button>
+						</div>
+					</div>
+
+					<div class="notif-filter-tabs">
+						<button class="notif-tab-btn active" data-tab="all" type="button" id="tabNotifAll">
+							<span>All</span>
+							<span class="notif-tab-count" id="notifCountAll">5</span>
+						</button>
+						<button class="notif-tab-btn" data-tab="unread" type="button" id="tabNotifUnread">
+							<span>Unread</span>
+							<span class="notif-tab-count unread-pill" id="notifCountUnread">3</span>
+						</button>
+					</div>
+
+					<div class="notif-list-container" id="notifListContainer">
+						<!-- Rendered dynamically by js/app_home.js -->
+					</div>
+
+					<div class="notif-footer">
+						<div class="notif-sync-status">
+							<span class="status-pulse-dot"></span>
+							<span class="status-text">NEURAL_FEED // REALTIME_SYNC</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<a href="profile.html" class="user-profile-pill" title="View Profile">
+				<div class="user-avatar-hex">M</div>
+				<span class="user-handle">@creator_01</span>
+			</a>
+		</div>
+	</header>
+
+	<!-- Main 3-Column Cyber Layout -->
+	<main class="app-layout-container">
+		
+		<!-- Left Sidebar: Formal Themes & Popular Clusters -->
+		<aside class="app-sidebar">
+			<div class="sidebar-glass-panel">
+				<div class="sidebar-title">THEMES</div>
+				<ul class="sidebar-nav-list" id="themeNavList">
+					<li>
+						<a href="#" class="sidebar-nav-link active" data-theme="all">
+							<i class="fas fa-layer-group"></i>
+							<span>All Themes</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="sidebar-nav-link" data-theme="system-design">
+							<i class="fas fa-sitemap"></i>
+							<span>System Design</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="sidebar-nav-link" data-theme="web-cloud">
+							<i class="fas fa-globe"></i>
+							<span>Web & Cloud</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="sidebar-nav-link" data-theme="mobile-apps">
+							<i class="fas fa-mobile-screen"></i>
+							<span>App Development</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="sidebar-nav-link" data-theme="cybersecurity">
+							<i class="fas fa-shield-halved"></i>
+							<span>Cybersecurity</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="sidebar-nav-link" data-theme="ai-ml">
+							<i class="fas fa-brain"></i>
+							<span>AI & Machine Learning</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="sidebar-nav-link" data-theme="hardware-robotics">
+							<i class="fas fa-microchip"></i>
+							<span>Hardware & Robotics</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="sidebar-nav-link" data-theme="quantum-bio">
+							<i class="fas fa-dna"></i>
+							<span>Quantum & Bio-Tech</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Left Sidebar Panel 2: Saved Collections -->
+			<div class="sidebar-glass-panel collections-panel">
+				<div class="sidebar-title-row">
+					<div class="sidebar-title">SAVED COLLECTIONS</div>
+					<button class="btn-add-collection-chip" id="btnOpenAddCollectionModal" title="Create New Collection" type="button">
+						<i class="fas fa-plus"></i>
+						<span>NEW</span>
+					</button>
+				</div>
+				<ul class="sidebar-nav-list" id="collectionNavList">
+					<!-- 1. Pinned Primary: Joined Projects -->
+					<li>
+						<a href="#" class="sidebar-nav-link collection-link" data-collection="joined" id="collectionJoinedLink">
+							<i class="fas fa-rocket"></i>
+							<span>Joined Projects</span>
+							<span class="nav-count-badge" id="badgeJoinedCount">1</span>
+						</a>
+					</li>
+					<!-- 2. Default Saved Ideas Collection -->
+					<li>
+						<a href="#" class="sidebar-nav-link collection-link" data-collection="saved" id="collectionSavedLink">
+							<i class="fas fa-bookmark"></i>
+							<span>Saved Thoughts</span>
+							<span class="nav-count-badge" id="badgeSavedCount">1</span>
+						</a>
+					</li>
+					<!-- Custom user collections rendered dynamically here -->
+				</ul>
+			</div>
+		</aside>
+
+		<!-- Center Column: Direct Instagram-Style Idea Post Stream -->
+		<section class="app-feed-column" id="ideaFeedContainer">
+
+			<!-- Feed Post 1: Neural Coding Synthesizer -->
+			<article class="idea-card" id="idea-neural-coding" data-id="idea-neural-coding" data-theme="quantum-bio" 
+				data-title="Direct-Neural Optical Synthesizer for High-Speed Coding"
+				data-author="@neuro_architect"
+				data-avatar="N"
+				data-time="12m ago"
+				data-desc="Translates sub-vocalization and optic saccades into high-throughput AST code edits without keyboard input. Designed for developers who think 10x faster than fingers can type. Left unfinished in 2024 due to lack of low-latency DSP firmware developers."
+				data-seeking="Embedded Rust Developer, Signal Processing Specialist"
+				data-tags="Rust, DSP Firmware, WebAssembly, Optical AST">
+				
+				<div class="idea-card-header">
+					<div class="creator-meta">
+						<div class="creator-avatar">N</div>
+						<div class="creator-info">
+							<span class="creator-name">@neuro_architect</span>
+							<span class="idea-timestamp">12m ago</span>
+						</div>
+					</div>
+				</div>
+
+				<h2 class="idea-title">Direct-Neural Optical Synthesizer for High-Speed Coding</h2>
+				<p class="idea-description">
+					Translates sub-vocalization and optic saccades into high-throughput AST code edits without keyboard input. Designed for developers who think 10x faster than fingers can type. Left unfinished in 2024 due to lack of low-latency DSP firmware developers.
+				</p>
+
+				<div class="seeking-roles">
+					<span class="seeking-label">Seeking:</span>
+					<span class="role-pill">Embedded Rust</span>
+					<span class="role-pill">Signal Processing</span>
+				</div>
+
+				<div class="idea-card-footer">
+					<div class="card-footer-left">
+						<button class="save-action-btn" title="Save to Collections" type="button" data-id="idea-neural-coding">
+							<i class="far fa-bookmark"></i>
+							<span class="save-btn-label">Save</span>
+						</button>
+						<button class="join-action-btn" title="Join this project" type="button" data-id="idea-neural-coding">
+							<i class="fas fa-plus"></i>
+							<span class="join-btn-label">Join</span>
+						</button>
+					</div>
+					<div class="card-footer-right">
+						<button class="star-action-btn" title="Star this project" type="button">
+							<i class="far fa-star"></i>
+							<span class="star-count">142</span>
+						</button>
+					</div>
+				</div>
+			</article>
+
+			<!-- Feed Post 2: Decentralized Solar Mesh -->
+			<article class="idea-card" id="idea-solar-mesh" data-id="idea-solar-mesh" data-theme="hardware-robotics"
+				data-title="Peer-to-Peer Neighborhood Micro-Battery Energy Routing"
+				data-author="@solar_nomad"
+				data-avatar="S"
+				data-time="2h ago"
+				data-desc="An autonomous ultra-local hardware protocol that routes excess residential rooftop power to immediate neighbors in microsecond bursts without touching monopolized utility grids."
+				data-seeking="Smart Meter Hardware Hacker, Legal Grid Advisor"
+				data-tags="Micro-Grids, Embedded C++, Energy Routing, ESP32">
+				
+				<div class="idea-card-header">
+					<div class="creator-meta">
+						<div class="creator-avatar">S</div>
+						<div class="creator-info">
+							<span class="creator-name">@solar_nomad</span>
+							<span class="idea-timestamp">2h ago</span>
+						</div>
+					</div>
+				</div>
+
+				<h2 class="idea-title">Peer-to-Peer Neighborhood Micro-Battery Energy Routing</h2>
+				<p class="idea-description">
+					An autonomous ultra-local hardware protocol that routes excess residential rooftop power to immediate neighbors in microsecond bursts without touching monopolized utility grids.
+				</p>
+
+				<div class="seeking-roles">
+					<span class="seeking-label">Seeking:</span>
+					<span class="role-pill">Hardware Hacker</span>
+					<span class="role-pill">Grid Energy Advisor</span>
+				</div>
+
+				<div class="idea-card-footer">
+					<div class="card-footer-left">
+						<button class="save-action-btn active" title="Save to Collections" type="button" data-id="idea-solar-mesh">
+							<i class="fas fa-bookmark"></i>
+							<span class="save-btn-label">Saved</span>
+						</button>
+						<button class="join-action-btn active" title="Joined Project" type="button" data-id="idea-solar-mesh">
+							<i class="fas fa-check"></i>
+							<span class="join-btn-label">Joined</span>
+						</button>
+					</div>
+					<div class="card-footer-right">
+						<button class="star-action-btn active" title="Star this project" type="button">
+							<i class="fas fa-star"></i>
+							<span class="star-count">289</span>
+						</button>
+					</div>
+				</div>
+			</article>
+
+			<!-- Feed Post 3: Zero-Knowledge Real-Time Canvas -->
+			<article class="idea-card" id="idea-zk-canvas" data-id="idea-zk-canvas" data-theme="cybersecurity"
+				data-title="Zero-Knowledge Encrypted Real-Time Collaborative Canvas"
+				data-author="@crypto_cipher"
+				data-avatar="K"
+				data-time="4h ago"
+				data-desc="A peer-to-peer infinite canvas for whiteboard system design where nodes never share plain-text geometry or text with central relay servers. Powered by client-side zk-SNARK state verification."
+				data-seeking="WebRTC Mesh Specialist, Cryptographic Engineer"
+				data-tags="zk-SNARKs, WebRTC, P2P CRDTs, Rust WebAssembly">
+				
+				<div class="idea-card-header">
+					<div class="creator-meta">
+						<div class="creator-avatar">K</div>
+						<div class="creator-info">
+							<span class="creator-name">@crypto_cipher</span>
+							<span class="idea-timestamp">4h ago</span>
+						</div>
+					</div>
+				</div>
+
+				<h2 class="idea-title">Zero-Knowledge Encrypted Real-Time Collaborative Canvas</h2>
+				<p class="idea-description">
+					A peer-to-peer infinite canvas for whiteboard system design where nodes never share plain-text geometry or text with central relay servers. Powered by client-side zk-SNARK state verification.
+				</p>
+
+				<div class="seeking-roles">
+					<span class="seeking-label">Seeking:</span>
+					<span class="role-pill">WebRTC Specialist</span>
+					<span class="role-pill">Cryptographic Engineer</span>
+				</div>
+
+				<div class="idea-card-footer">
+					<div class="card-footer-left">
+						<button class="save-action-btn" title="Save to Collections" type="button" data-id="idea-zk-canvas">
+							<i class="far fa-bookmark"></i>
+							<span class="save-btn-label">Save</span>
+						</button>
+						<button class="join-action-btn" title="Join this project" type="button" data-id="idea-zk-canvas">
+							<i class="fas fa-plus"></i>
+							<span class="join-btn-label">Join</span>
+						</button>
+					</div>
+					<div class="card-footer-right">
+						<button class="star-action-btn" title="Star this project" type="button">
+							<i class="far fa-star"></i>
+							<span class="star-count">318</span>
+						</button>
+					</div>
+				</div>
+			</article>
+
+			<!-- Feed Post 4: Local Distributed LLM Engine -->
+			<article class="idea-card" id="idea-distributed-llm" data-id="idea-distributed-llm" data-theme="ai-ml"
+				data-title="Mesh-Distributed 70B LLM Inference on Consumer GPUs"
+				data-author="@tensor_pioneer"
+				data-avatar="A"
+				data-time="6h ago"
+				data-desc="P2P tensor-parallelism layer splitting 70B parameter models across local Wi-Fi nodes (Mac mini, gaming rig, laptops) with zero cloud dependencies and sub-20ms inter-token latency."
+				data-seeking="CUDA/Metal Kernel Optimizer, Low-Latency Networking Engineer"
+				data-tags="CUDA, Apple Metal, PyTorch P2P, Distributed Tensor">
+				
+				<div class="idea-card-header">
+					<div class="creator-meta">
+						<div class="creator-avatar">A</div>
+						<div class="creator-info">
+							<span class="creator-name">@tensor_pioneer</span>
+							<span class="idea-timestamp">6h ago</span>
+						</div>
+					</div>
+				</div>
+
+				<h2 class="idea-title">Mesh-Distributed 70B LLM Inference on Consumer GPUs</h2>
+				<p class="idea-description">
+					P2P tensor-parallelism layer splitting 70B parameter models across local Wi-Fi nodes (Mac mini, gaming rig, laptops) with zero cloud dependencies and sub-20ms inter-token latency.
+				</p>
+
+				<div class="seeking-roles">
+					<span class="seeking-label">Seeking:</span>
+					<span class="role-pill">CUDA / Metal Optimizer</span>
+					<span class="role-pill">Network Engineer</span>
+				</div>
+
+				<div class="idea-card-footer">
+					<div class="card-footer-left">
+						<button class="save-action-btn" title="Save to Collections" type="button" data-id="idea-distributed-llm">
+							<i class="far fa-bookmark"></i>
+							<span class="save-btn-label">Save</span>
+						</button>
+						<button class="join-action-btn" title="Join this project" type="button" data-id="idea-distributed-llm">
+							<i class="fas fa-plus"></i>
+							<span class="join-btn-label">Join</span>
+						</button>
+					</div>
+					<div class="card-footer-right">
+						<button class="star-action-btn" title="Star this project" type="button">
+							<i class="far fa-star"></i>
+							<span class="star-count">512</span>
+						</button>
+					</div>
+				</div>
+			</article>
+
+		</section>
+
+		<!-- Right Column: Spawn New Thought (Shifted Here as TODO) & Spotlight -->
+		<aside class="app-telemetry-column">
+			
+			<!-- Fast Ideation Spawner (Shifted to Right & Marked as TODO) -->
+			<div class="ideation-spawner-card" id="spawn">
+				<div class="spawner-header">
+					<span class="spawner-title">[ TODO: SPAWN_NEW_THOUGHT ]</span>
+				</div>
+				<div class="spawner-input-wrap">
+					<textarea id="spawnerTextarea" placeholder="What impossible idea are you thinking about right now that must exist?"></textarea>
+				</div>
+				<div class="spawner-actions">
+					<div class="spawner-tag-shortcuts">
+						<button class="tag-btn-chip">+ Need Dev</button>
+						<button class="tag-btn-chip">+ Need Hardware</button>
+					</div>
+					<button class="collaborate-btn" style="width: 100%; justify-content: center; margin-top: 0.6rem;">
+						<span>SPAWN NODE (TODO)</span>
+						<i class="fas fa-arrow-right"></i>
+					</button>
+				</div>
+			</div>
+
+			<!-- Most Liked of the Day Spotlight -->
+			<div class="telemetry-card spotlight-card"
+				data-id="idea-distributed-llm"
+				data-title="Mesh-Distributed 70B LLM Inference on Consumer GPUs"
+				data-author="@tensor_pioneer"
+				data-avatar="A"
+				data-time="Today // 512 Stars"
+				data-desc="P2P tensor-parallelism layer splitting 70B parameter models across local Wi-Fi nodes (Mac mini, gaming rig, laptops) with zero cloud dependencies and sub-20ms inter-token latency."
+				data-seeking="CUDA/Metal Kernel Optimizer, Low-Latency Networking Engineer"
+				data-tags="CUDA, Apple Metal, PyTorch P2P, Distributed Tensor">
+				
+				<div class="spotlight-badge-row">
+					<span class="spotlight-badge">⭐ MOST LIKED OF THE DAY</span>
+					<span class="spotlight-star-count"><i class="fas fa-star"></i> 512</span>
+				</div>
+				<h3 class="spotlight-title">Mesh-Distributed 70B LLM Inference on Consumer GPUs</h3>
+				<p class="spotlight-desc">
+					P2P tensor-parallelism layer splitting 70B parameter models across local Wi-Fi nodes with sub-20ms latency.
+				</p>
+				<div class="spotlight-author-meta">
+					<div class="creator-avatar" style="width: 22px; height: 22px; font-size: 0.65rem;">A</div>
+					<span class="creator-name" style="font-size: 0.8rem;">@tensor_pioneer</span>
+				</div>
+			</div>
+
+		</aside>
+
+	</main>
+
+	<!-- Full Project Inspection Modal (Displays whole project when post is clicked) -->
+	<div class="project-modal-backdrop" id="projectModal">
+		<div class="project-modal-sheet">
+			<!-- Top Actions Bar: Save Button & Close Button -->
+			<div class="modal-top-actions">
+				<button class="modal-top-save-btn" id="modalSaveBtn" title="Save to Collection" type="button">
+					<i class="far fa-bookmark"></i>
+					<span id="modalSaveBtnText">Save</span>
+				</button>
+				<button class="modal-close-btn" id="modalCloseBtn" title="Close modal"><i class="fas fa-xmark"></i></button>
+			</div>
+			
+			<div class="modal-author-row">
+				<div class="creator-avatar" id="modalAvatar">N</div>
+				<div class="creator-info">
+					<span class="creator-name" id="modalAuthor">@neuro_architect</span>
+					<span class="idea-timestamp" id="modalTime">12m ago</span>
+				</div>
+			</div>
+
+			<h1 class="modal-title" id="modalTitle">Direct-Neural Optical Synthesizer for High-Speed Coding</h1>
+			<p class="modal-description" id="modalDesc">Translates sub-vocalization and optic saccades into high-throughput AST code edits without keyboard input.</p>
+
+			<div class="modal-section-block">
+				<h4 class="modal-section-heading">ARCHITECTURAL DOMAIN & STACK</h4>
+				<div class="modal-tags-wrap" id="modalTags">
+					<span class="role-pill">Rust</span>
+					<span class="role-pill">DSP Firmware</span>
+					<span class="role-pill">WebAssembly</span>
+				</div>
+			</div>
+
+			<div class="modal-section-block">
+				<h4 class="modal-section-heading">OPEN COLLABORATIONS & MISSING TALENT</h4>
+				<div class="seeking-roles" id="modalSeeking">
+					<span class="seeking-label">Seeking:</span>
+					<span class="role-pill">Embedded Rust</span>
+					<span class="role-pill">Signal Processing</span>
+				</div>
+			</div>
+
+			<div class="modal-footer-bar">
+				<button class="star-action-btn" id="modalStarBtn" type="button">
+					<i class="far fa-star"></i>
+					<span class="star-count">142</span> Stars
+				</button>
+				<div class="modal-footer-right-actions">
+					<button class="modal-action-primary" id="modalJoinBtn" type="button">
+						<i class="fas fa-rocket"></i>
+						<span id="modalJoinBtnText">Join Project</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Create New Collection Dialog Modal -->
+	<div class="project-modal-backdrop" id="collectionModal">
+		<div class="project-modal-sheet collection-modal-sheet">
+			<div class="modal-top-actions">
+				<button class="modal-close-btn" id="collectionModalCloseBtn" title="Close"><i class="fas fa-xmark"></i></button>
+			</div>
+			
+			<h3 class="collection-modal-title">Create New Collection</h3>
+			<p class="collection-modal-subtitle">Organize ideas and blueprints into a custom collection.</p>
+			
+			<form id="createCollectionForm" class="collection-modal-form">
+				<div class="collection-form-field">
+					<label for="collectionNameInput">Collection Name</label>
+					<input type="text" id="collectionNameInput" class="app-modal-input" placeholder="e.g. Neural AST, Quantum Hardware, Seed Ideas" required maxlength="30" autocomplete="off" />
+				</div>
+
+				<div class="collection-form-field">
+					<label>Collection Icon</label>
+					<div class="icon-picker-grid" id="collectionIconPicker">
+						<button type="button" class="icon-choice-btn active" data-icon="fa-folder"><i class="fas fa-folder"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-bolt"><i class="fas fa-bolt"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-lightbulb"><i class="fas fa-lightbulb"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-microchip"><i class="fas fa-microchip"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-dna"><i class="fas fa-dna"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-shield-halved"><i class="fas fa-shield-halved"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-code"><i class="fas fa-code"></i></button>
+						<button type="button" class="icon-choice-btn" data-icon="fa-star"><i class="fas fa-star"></i></button>
+					</div>
+				</div>
+
+				<div class="collection-modal-btn-row">
+					<button type="button" class="btn-cancel-glass" id="collectionModalCancelBtn">Cancel</button>
+					<button type="submit" class="modal-action-primary">
+						<i class="fas fa-plus"></i>
+						<span>Create Collection</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="../js/app_home.js"></script>
+</body>
+</html>
